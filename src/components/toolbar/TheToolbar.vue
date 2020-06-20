@@ -1,7 +1,10 @@
 <template>
 <div class="the-toolbar">
-    <UiButton view="primary">
-        <UiIcon name="favorite-filled" />
+    <UiButton view="primary" class="the-toolbar__favorite">
+        <template>
+            <UiTooltip class="the-toolbar__favorite-tooltip">Избранное</UiTooltip>
+            <UiIcon name="favorite-filled" />
+        </template>
     </UiButton>
 
     <UiAutocomplete
@@ -21,6 +24,7 @@
 </template>
 
 <script>
+import UiTooltip from '@/components/uikit/UiTooltip';
 import UiAutocomplete from '@/components/uikit/UiAutocomplete';
 import UiButton from '@/components/uikit/UiButton';
 import UiIcon from '@/components/uikit/UiIcon';
@@ -32,6 +36,7 @@ export default {
         UiAutocomplete,
         UiButton,
         UiIcon,
+        UiTooltip,
     },
 
     data () {
@@ -54,6 +59,19 @@ export default {
         line-height: 20px;
         color: #4B5959;
         padding: 10px 12px;
+    }
+
+    &__favorite {
+        &:hover {
+            .the-toolbar__favorite-tooltip {
+                opacity: 1;
+            }
+        }
+
+        &-tooltip {
+            opacity: 0;
+            transition: opacity ease-in-out .15s;
+        }
     }
 }
 </style>

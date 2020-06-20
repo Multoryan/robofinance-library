@@ -58,6 +58,7 @@ export default {
     border: inherit;
     height: 100%;
     padding: inherit;
+    position: relative;
 
     &--primary {
         background-color: $colorWhite;
