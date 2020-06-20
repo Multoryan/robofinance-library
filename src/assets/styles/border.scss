@@ -1,0 +1,5 @@
+@import './colors.scss';
+
+@mixin border ($color: $colorBorder) {
+    border: 1px solid $color;
+}
