@@ -1,8 +1,10 @@
-<template lang="pug">
-.ui-icon(
+<template>
+<div
     v-on="$listeners"
+    class="ui-icon"
     v-html="require(`@/assets/icons/icon-${name}.svg`)"
-)
+>
+</div>
 </template>
 
 <script>

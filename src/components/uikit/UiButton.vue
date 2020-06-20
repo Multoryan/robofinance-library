@@ -1,11 +1,12 @@
-<template lang="pug">
-Component.ui-button(
+<template>
+<Component
     v-on="$listeners"
     v-bind="$attrs"
     :is="element"
-    :class="[`ui-button--${view}`]"
-)
-    slot
+    :class="[`ui-button--${view}`, 'ui-button']"
+>
+    <slot></slot>
+</Component>
 </template>
 
 <script>

@@ -1,18 +1,20 @@
-<template lang="pug">
-.ui-field
-    input.ui-field__input(
+<template>
+<div class="ui-field">
+    <input
         v-bind="$attrs"
+        class="ui-field__input"
         :value="value"
         :style="additionalStyles"
         @input="inputValue"
-    )
+    />
 
-    .ui-field__append(
+    <div
         v-if="$slots.append"
-    )
-        slot(
-            name="append"
-        )
+        class="ui-field__append"
+    >
+        <slot name="append" />
+    </div>
+</div>
 </template>
 
 <script>
