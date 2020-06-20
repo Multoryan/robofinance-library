@@ -80,17 +80,20 @@ export default {
 
 .ui-field {
     position: relative;
+    border-radius: $defaultBorderRadius;
+
+    @include border();
+    @include blackShadow();
 
     &__input {
         box-sizing: border-box;
         width: 100%;
+        border: none;
         border-radius: $defaultBorderRadius;
 
         /** -1px это border, на макете padding 12px включает в себя border */
         padding: (1.5*$grid-gap-main - 1px) (2*$grid-gap-main - 1px);
 
-        @include blackShadow();
-        @include border();
         @include inputFont();
 
         &::placeholder {

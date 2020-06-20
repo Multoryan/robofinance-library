@@ -4,24 +4,24 @@
         <UiIcon name="favorite-filled" />
     </UiButton>
 
-    <UiField
-        v-model.trim="search"
+    <UiAutocomplete
+        :search.sync="search"
         placeholder="Поиск"
         aria-label="Поиск"
+        append="44px"
         autofocus
     >
-        <UiButton
-            slot="append"
-            @click="clearSearch"
-        >
-            <UiIcon :name="searchIcon" />
-        </UiButton>
-    </UiField>
+        <template v-slot="{ suggest }">
+            <div class="the-toolbar__suggest">
+                {{ suggest }}
+            </div>
+        </template>
+    </UiAutocomplete>
 </div>
 </template>
 
 <script>
-import UiField from '@/components/uikit/UiField';
+import UiAutocomplete from '@/components/uikit/UiAutocomplete';
 import UiButton from '@/components/uikit/UiButton';
 import UiIcon from '@/components/uikit/UiIcon';
 
@@ -29,7 +29,7 @@ export default {
     name: 'TheToolbar',
 
     components: {
-        UiField,
+        UiAutocomplete,
         UiButton,
         UiIcon,
     },
@@ -38,22 +38,6 @@ export default {
         return {
             search: '',
         };
-    },
-
-    computed: {
-        isEmptySearch () {
-            return Boolean(this.search);
-        },
-
-        searchIcon () {
-            return this.isEmptySearch ? 'close' : 'search';
-        },
-    },
-
-    methods: {
-        clearSearch () {
-            this.search = '';
-        },
     },
 };
 </script>
@@ -64,5 +48,12 @@ export default {
     grid-template-columns: 44px 1fr;
     grid-gap: 12px;
     color: #4B5959;
+
+    &__suggest {
+        font-size: 15px;
+        line-height: 20px;
+        color: #4B5959;
+        padding: 10px 12px;
+    }
 }
 </style>
