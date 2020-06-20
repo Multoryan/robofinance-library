@@ -1,21 +1,30 @@
 <template>
+<div>
   <UiField
     v-model="test"
     placeholder="Поиск"
     append="44px"
   >
-    <span slot="append">test</span>
+    <UiButton slot="append">
+      <UiIcon name="search" />
+    </UiButton>
   </UiField>
+  <UiButton view="primary">test</UiButton>
+</div>
 </template>
 
 <script>
 import UiField from '@/components/uikit/UiField';
+import UiButton from '@/components/uikit/UiButton';
+import UiIcon from '@/components/uikit/UiIcon';
 
 export default {
     name: 'HelloWorld',
 
     components: {
         UiField,
+        UiButton,
+        UiIcon,
     },
 
     data () {

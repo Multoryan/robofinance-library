@@ -100,6 +100,7 @@ export default {
     &__append {
         position: absolute;
         top: 2*$grid-gap-secondary;
+        bottom: 2*$grid-gap-secondary;
         right: 2*$grid-gap-secondary;
     }
 }
