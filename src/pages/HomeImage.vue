@@ -1,8 +1,22 @@
 <template>
 <div class="home-image">
+    <TheToolbar class="home-image__toolbar" />
+
     <div class="home-image__header">Библиотека</div>
 </div>
 </template>
+
+<script>
+import TheToolbar from '@/components/toolbar/TheToolbar';
+
+export default {
+    name: 'HomeImage',
+
+    components: {
+        TheToolbar,
+    },
+};
+</script>
 
 <style lang="scss">
 .home-image {
@@ -10,6 +24,7 @@
     background-repeat: no-repeat;
     background-position: left top;
     min-height: 100vh;
+    background-color: #ddd;
 
     &__header {
         font-weight: 900;
@@ -20,6 +35,30 @@
         position: absolute;
         right: 32px;
         bottom: 252px;
+    }
+
+    &__toolbar {
+        display: none;
+    }
+
+    @media (max-width: 1023px) {
+        &__toolbar {
+            display: grid;
+            position: fixed;
+            top: 24px;
+            left: 16px;
+            right: 16px;
+        }
+
+        &__header {
+            font-size: 33px;
+            line-height: 37px;
+            width: 100%;
+            left: 0;
+            right: 0;
+            bottom: 181px;
+            text-align: center;
+        }
     }
 }
 </style>

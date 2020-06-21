@@ -53,5 +53,9 @@ export default {
         margin: 0 -12px;
         height: 125px;
     }
+
+    @media (max-width: 1023) {
+        margin-top: 0;
+    }
 }
 </style>

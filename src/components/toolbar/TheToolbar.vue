@@ -13,7 +13,6 @@
         placeholder="Поиск"
         aria-label="Поиск"
         append="44px"
-        autofocus
         autocomplete="off"
         name="search"
         @close="resetSuggest"

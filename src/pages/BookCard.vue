@@ -5,6 +5,11 @@
     </template>
 
     <template v-else>
+        <div class="book-card__header">
+            <UiButton class="book-card__header-action" @click="back">
+                <UiIcon class="book-card__icon--white" name="back" :size="24" />
+            </UiButton>
+        </div>
         <div class="book-card__info">
             <img class="book-card__image" :src="book.image" :alt="`Изображение для книги ${book.title}`" />
 
@@ -109,6 +114,11 @@ export default {
         putFavorite () {
             this.$store.dispatch('wish/putList', this.book.id);
         },
+
+        back () {
+            const [first] = this.$route.path.split('/').filter(Boolean);
+            this.$router.push({ path: `/${first}` });
+        },
     },
 };
 </script>
@@ -127,6 +137,10 @@ export default {
             'image characters'
             'image rating'
             'image favorite';
+    }
+
+    &__header {
+        display: none;
     }
 
     &__image {
@@ -227,6 +241,69 @@ export default {
             font-size: 15px;
             line-height: 24px;
             color: #000000;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        padding: 0;
+        position: relative;
+
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 44px;
+            padding: 10px 16px;
+            background-color: rgba(0, 0, 0, .6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            &-action {
+                padding: unset;
+                background-color: transparent;
+            }
+        }
+
+        &__info {
+            padding: 0 16px;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                'image'
+                'title'
+                'characters'
+                'rating'
+                'favorite';
+        }
+
+        &__image {
+            max-width: 100vw;
+            margin: 0 -16px;
+            justify-self: center;
+        }
+
+        &__title {
+            margin-top: 8px;
+            font-size: 19px;
+        }
+
+        &__text {
+            padding: 0 16px;
+            margin-top: 39px;
+        }
+
+        &__icon {
+            &--white {
+                color: #fff;
+            }
+        }
+
+        &__favorite {
+            grid-area: favorite;
+            width: max-content;
+            padding: 0;
+            margin-top: 10px;
         }
     }
 }

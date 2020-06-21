@@ -7,7 +7,13 @@
             </UiButton>
             <h2 class="wish__header-title">Избранное</h2>
         </div>
-        <BookList v-if="wish.length" :books="wish" from="favorites" />
+
+        <BookList
+            v-if="wish.length"
+            :books="wish"
+            class="wish__list"
+            from="favorites"
+        />
     </div>
 
     <div class="wish__pagination-wrapper">
@@ -109,6 +115,35 @@ export default {
     &__pagination-wrapper {
         display: flex;
         justify-content: center;
+    }
+
+    @media (max-width: 1023px) {
+        &__header {
+            height: 44px;
+            margin-left: 0;
+            grid-template-columns: 24px 1fr;
+            padding: 10px 16px;
+            background-color: #F3F3F3;
+            margin-bottom: 0;
+
+            &-action {
+                border-radius: 0;
+                height: 24px;
+                background-color: inherit;
+            }
+
+            &-title {
+                font-size: 19px;
+            }
+        }
+
+        &__list {
+            padding: 0 16px;
+        }
+
+        &__pagination-wrapper {
+            display: none;
+        }
     }
 }
 </style>

@@ -1,9 +1,16 @@
 <template>
 <router-link class="book-item" :to="`/${from}/${book.id}`">
     <template v-if="book.title">
-        <img class="book-item__image" :src="book.image" :alt="`Изображение книги ${book.title}`" />
+        <img
+            class="book-item__image"
+            :src="book.image"
+            :alt="`Изображение книги ${book.title}`"
+        />
 
-        <UiRating class="book-item__rating" :rating="book.rating" />
+        <UiRating
+            class="book-item__rating"
+            :rating="book.rating"
+        />
 
         <span class="book-item__title">{{ book.title }}</span>
 
@@ -70,11 +77,26 @@ export default {
 
     &__title {
         grid-area: title;
+        font-weight: 500;
     }
 
     &__description {
         grid-area: description;
         margin: 0;
+    }
+
+    @media (max-width: 1023px) {
+        grid-template-columns: 1fr;
+        grid-gap: 6px;
+        grid-template-areas:
+        'rating'
+        'title'
+        'description';
+        height: auto;
+
+        &__image {
+            display: none;
+        }
     }
 }
 </style>
