@@ -1,25 +1,20 @@
 <template>
 <div class="page-home">
-    <div class="page-home__image">
-        <div class="page-home__header">Библиотека</div>
+    <div class="page-home__left">
+        <router-view />
     </div>
-    <div class="page-home__search">
-        <TheToolbar class="page-home__toolbar" />
+    <div class="page-home__right">
+        <keep-alive>
+            <router-view name="side" />
+        </keep-alive>
+    </div>
+    <div class="page-home__mobile">
+        <keep-alive>
+            <router-view name="mobile" />
+        </keep-alive>
     </div>
 </div>
 </template>
-
-<script>
-import TheToolbar from '@/components/toolbar/TheToolbar';
-
-export default {
-    name: 'PageHome',
-
-    components: {
-        TheToolbar,
-    },
-};
-</script>
 
 <style lang="scss">
 .page-home {
@@ -27,32 +22,38 @@ export default {
     display: grid;
     grid-template-columns: 1fr 590px;
 
-    &__image {
-        background-image: url('../assets/images/books-min.jpg');
-        background-repeat: no-repeat;
-        background-position: left top;
+    &__left {
         min-height: 100vh;
         background-color: #ddd;
         position: relative;
     }
 
-    &__header {
-        font-weight: 900;
-        font-size: 59px;
-        line-height: 62px;
-        color: #4B5959;
-        text-transform: uppercase;
-        position: absolute;
-        right: 32px;
-        bottom: 252px;
+    &__mobile {
+        display: none;
     }
 
-    &__search {
+    &__right {
         padding: 64px;
     }
 
     &__toolbar {
         margin-right: 24px;
+    }
+
+    @media (max-width: 1023px) {
+        display: block;
+
+        &__left {
+            display: none;
+        }
+
+        &__right {
+            display: none;
+        }
+
+        &__mobile {
+            display: block;
+        }
     }
 }
 </style>
