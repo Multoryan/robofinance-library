@@ -1,5 +1,5 @@
 <template>
-<div class="ui-autocomplete">
+<div class="ui-autocomplete" @keydown.esc="close">
     <div class="ui-autocomplete__field">
         <UiField
             v-bind="$attrs"
@@ -8,6 +8,7 @@
             :value="proxySearch"
             class="ui-autocomplete__input"
             @input="changeSearch"
+            @keydown.enter="submit"
         >
             <UiButton
                 slot="append"
@@ -24,7 +25,9 @@
             <div
                 v-for="(suggest, index) in suggests"
                 :key="index"
+                :tabindex="0"
                 class="ui-autocomplete__item"
+                @keydown.enter="setSuggest(suggest)"
                 @click="setSuggest(suggest)"
             >
                 <slot v-bind:suggest="suggest"></slot>
@@ -80,6 +83,10 @@ export default {
     },
 
     methods: {
+        submit () {
+            this.$emit('submit');
+        },
+
         clearSearch () {
             this.proxySearch = '';
         },
@@ -90,6 +97,10 @@ export default {
 
         setSuggest (suggest) {
             this.$emit('setSuggest', suggest);
+        },
+
+        close () {
+            this.$emit('close');
         },
     },
 };
@@ -108,6 +119,7 @@ export default {
         border-left: 1px solid #7D8888;
         border-right: 1px solid #7D8888;
         background-color: #fff;
+        z-index: 1;
         @include blackShadow();
     }
 

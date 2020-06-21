@@ -6,6 +6,7 @@
         :value="value"
         :style="additionalStyles"
         @input="inputValue"
+        @keydown="keydown"
     />
 
     <div
@@ -68,6 +69,10 @@ export default {
         inputValue (e) {
             this.$emit('input', e.target.value);
         },
+
+        keydown (e) {
+            this.$emit('keydown', e);
+        },
     },
 };
 </script>
@@ -104,8 +109,8 @@ export default {
 
     &__append {
         position: absolute;
-        top: 2*$grid-gap-secondary;
-        bottom: 2*$grid-gap-secondary;
+        top: 2*$grid-gap-secondary - 1px;
+        bottom: 2*$grid-gap-secondary - 1px;
         right: 2*$grid-gap-secondary;
     }
 }
