@@ -12,6 +12,7 @@
         >
             <UiButton
                 slot="append"
+                :aria-label="isEmptySearch ? 'Искать' : 'Стереть'"
                 @click="clearSearch"
             >
                 <UiIcon :name="searchIcon" />
