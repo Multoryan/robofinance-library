@@ -39,16 +39,16 @@
             <UiButton
                 class="book-card__favorite"
                 :to="`/favorites/${book.id}`"
-                :element="hasInWish ? 'router-link' : 'button'"
-                :class="{ 'book-card__favorite--active': hasInWish }"
+                :element="hasInfavorite ? 'router-link' : 'button'"
+                :class="{ 'book-card__favorite--active': hasInfavorite }"
                 @click="putFavorite"
             >
                 <div class="book-card__favorite-inner">
                     <UiIcon
-                        :name="hasInWish ? 'favorite-filled' : 'favorite-outline'"
+                        :name="hasInfavorite ? 'favorite-filled' : 'favorite-outline'"
                         class="book-card__favorite-icon"
                     />
-                    <span class="book-card__favorite-title">{{ hasInWish ? 'Перейти в избранное' : 'В избранное' }}</span>
+                    <span class="book-card__favorite-title">{{ hasInfavorite ? 'Перейти в избранное' : 'В избранное' }}</span>
                 </div>
             </UiButton>
         </div>
@@ -105,14 +105,14 @@ export default {
     },
 
     computed: {
-        hasInWish () {
-            return this.$store.getters['wish/hasId'](this.book.id);
+        hasInfavorite () {
+            return this.$store.getters['favorite/hasId'](this.book.id);
         },
     },
 
     methods: {
         putFavorite () {
-            this.$store.dispatch('wish/putList', this.book.id);
+            this.$store.dispatch('favorite/putList', this.book.id);
         },
 
         back () {
@@ -140,7 +140,7 @@ export default {
     }
 
     &__header {
-        display: none;
+        @include hide();
     }
 
     &__image {
@@ -221,7 +221,7 @@ export default {
         color: #7D8888;
 
         &-value {
-            color: #000;
+            color: $colorBlack;
         }
     }
 
@@ -232,7 +232,7 @@ export default {
             font-weight: 500;
             font-size: 19px;
             line-height: 24px;
-            color: #000;
+            color: $colorBlack;
             margin: 0;
         }
 
@@ -240,11 +240,11 @@ export default {
             margin-top: 16px;
             font-size: 15px;
             line-height: 24px;
-            color: #000000;
+            color: $colorBlack;
         }
     }
 
-    @media (max-width: 1023px) {
+    @media (max-width: $max-width-mobile) {
         padding: 0;
         position: relative;
 
@@ -295,7 +295,7 @@ export default {
 
         &__icon {
             &--white {
-                color: #fff;
+                color: $colorWhite;
             }
         }
 

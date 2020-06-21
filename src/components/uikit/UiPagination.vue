@@ -73,14 +73,14 @@ export default {
 
 <style lang="scss">
 .ui-pagination {
-    border: 1px solid #cccccc;
+    border: 1px solid $colorBorderPagination;
     border-radius: 4px;
     height: 36px;
     display: flex;
 
     &__button {
-        background-color: #ffffff;
-        border-right: 1px solid #cccccc;
+        background-color: $colorWhite;
+        border-right: 1px solid $colorBorderPagination;
         height: 100%;
         border-left: none;
         border-bottom: none;
@@ -98,13 +98,13 @@ export default {
 
         &.ui-pagination__button--active {
             background-color: #848E8E;
-            color: #fff;
+            color: $colorWhite;
         }
 
         &.ui-pagination__prev {
             transform: scale(-1, 1);
             border-right: 0;
-            border-left: 1px solid #cccccc;
+            border-left: 1px solid $colorBorderPagination;
             padding: 4px 10px 9px 10px;
         }
 

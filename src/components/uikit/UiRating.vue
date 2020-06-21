@@ -70,7 +70,7 @@ export default {
         position: relative;
 
         &--black {
-            color: #000;
+            color: $colorBlack;
         }
 
         &--overlay {
@@ -80,7 +80,7 @@ export default {
             overflow: hidden;
 
             &.ui-rating__star--filled {
-                color: #F5A623;
+                color: $colorRating;
             }
         }
     }

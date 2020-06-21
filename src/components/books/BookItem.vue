@@ -1,4 +1,5 @@
 <template>
+<!-- @todo Заменить параметр to на нормальные Name и Идентификатор -->
 <router-link class="book-item" :to="`/${from}/${book.id}`">
     <template v-if="book.title">
         <img
@@ -15,10 +16,13 @@
         <span class="book-item__title">{{ book.title }}</span>
 
         <p class="book-item__description">{{ book.description }}</p>
+
     </template>
+
     <template v-else>
         Загрузка...
     </template>
+
 </router-link>
 </template>
 
@@ -59,11 +63,11 @@ export default {
     grid-template-columns: 74px 1fr;
     cursor: pointer;
     text-decoration: none;
-    color: #000000;
+    color: $colorBlack;
 
     &:hover {
         background-color: #F3F3F3;
-        border-radius: 8px;
+        border-radius: 2*$defaultBorderRadius;
     }
 
     &__image {
@@ -85,17 +89,17 @@ export default {
         margin: 0;
     }
 
-    @media (max-width: 1023px) {
+    @media (max-width: $max-width-mobile) {
         grid-template-columns: 1fr;
         grid-gap: 6px;
         grid-template-areas:
-        'rating'
-        'title'
-        'description';
+            'rating'
+            'title'
+            'description';
         height: auto;
 
         &__image {
-            display: none;
+            @include hide();
         }
     }
 }

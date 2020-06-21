@@ -1,7 +1,7 @@
 import { getFavorites } from '@/server/endpoints';
 export const COUNT_IN_PAGE = 4;
 
-const wish = {
+const favorite = {
     state: {
         list: [], // Список избранного
         page: 1, // Текущий номер страницы
@@ -50,6 +50,7 @@ const wish = {
 
         async putList ({ commit, dispatch, getters }, id) {
             commit('putList', id);
+
             // Если список содержит текущий идентификатор
             if (getters.hasIdOnPage(id)) {
                 const book = await dispatch('fetchBook', id, { root: true });
@@ -83,4 +84,4 @@ const wish = {
     },
 };
 
-export default { ...wish, namespaced: true };
+export default { ...favorite, namespaced: true };

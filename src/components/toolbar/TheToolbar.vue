@@ -54,7 +54,7 @@ export default {
         async search (value) {
             if (!value.length) {
                 this.resetSuggest();
-                this.$store.commit('search/setList', []);
+                this.$store.commit('search/setFields', { list: [] });
                 return;
             }
             if (this.suggests.includes(value)) {
@@ -70,8 +70,8 @@ export default {
             get () {
                 return this.$store.state.search.search;
             },
-            set (val) {
-                this.$store.commit('search/setSearch', val);
+            set (search) {
+                this.$store.commit('search/setFields', { search });
             },
         },
 

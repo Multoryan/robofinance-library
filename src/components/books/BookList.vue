@@ -1,8 +1,8 @@
 <template>
 <div class="book-list">
     <div
-        v-for="(book, index) in books"
-        :key="index"
+        v-for="book in books"
+        :key="book.id"
         class="book-list__item-wrapper"
     >
         <BookItem

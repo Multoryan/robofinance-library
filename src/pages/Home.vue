@@ -29,7 +29,7 @@
     }
 
     &__mobile {
-        display: none;
+        @include hide();
     }
 
     &__right {
@@ -40,15 +40,15 @@
         margin-right: 24px;
     }
 
-    @media (max-width: 1023px) {
+    @media (max-width: $max-width-mobile) {
         display: block;
 
         &__left {
-            display: none;
+            @include hide();
         }
 
         &__right {
-            display: none;
+            @include hide();
         }
 
         &__mobile {

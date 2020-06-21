@@ -1,24 +1,24 @@
 <template>
-<div class="wish">
-    <div class="page-home__wish-wrapper">
-        <div class="wish__header">
-            <UiButton class="wish__header-action" element="router-link" :to="backLink">
+<div class="favorite">
+    <div class="page-home__favorite-wrapper">
+        <div class="favorite__header">
+            <UiButton class="favorite__header-action" element="router-link" :to="backLink">
                 <UiIcon name="back" />
             </UiButton>
-            <h2 class="wish__header-title">Избранное</h2>
+            <h2 class="favorite__header-title">Избранное</h2>
         </div>
 
         <BookList
-            v-if="wish.length"
-            :books="wish"
-            class="wish__list"
+            v-if="favorite.length"
+            :books="favorite"
+            class="favorite__list"
             from="favorites"
         />
     </div>
 
-    <div class="wish__pagination-wrapper">
+    <div class="favorite__pagination-wrapper">
         <UiPagination
-            v-if="wish.length && count"
+            v-if="favorite.length && count"
             v-model="page"
             :count="count"
         />
@@ -37,7 +37,7 @@ export default {
     name: 'PageFavorites',
 
     async beforeMount () {
-        await this.$store.dispatch('wish/fetchList', {});
+        await this.$store.dispatch('favorite/fetchList', {});
     },
 
     components: {
@@ -49,24 +49,24 @@ export default {
 
     computed: {
         ...mapState({
-            page: state => state.wish.page,
+            page: state => state.favorite.page,
         }),
 
         page: {
             get () {
-                return this.$store.state.wish.page;
+                return this.$store.state.favorite.page;
             },
             async set (page) {
-                await this.$store.dispatch('wish/fetchList', { page });
+                await this.$store.dispatch('favorite/fetchList', { page });
             },
         },
 
         ...mapGetters({
-            count: 'wish/countPages',
+            count: 'favorite/countPages',
         }),
 
-        wish () {
-            return this.$store.getters['wish/getFavorites'];
+        favorite () {
+            return this.$store.getters['favorite/getFavorites'];
         },
 
         backLink () {
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss">
-.wish {
+.favorite {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -107,7 +107,7 @@ export default {
             font-weight: 500;
             font-size: 21px;
             line-height: 26px;
-            color: #000;
+            color: $colorBlack;
             margin: 0;
         }
     }
@@ -117,7 +117,7 @@ export default {
         justify-content: center;
     }
 
-    @media (max-width: 1023px) {
+    @media (max-width: $max-width-mobile) {
         &__header {
             height: 44px;
             margin-left: 0;
@@ -142,7 +142,7 @@ export default {
         }
 
         &__pagination-wrapper {
-            display: none;
+            @include hide();
         }
     }
 }

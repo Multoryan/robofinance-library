@@ -38,10 +38,10 @@ export default {
     }
 
     &__toolbar {
-        display: none;
+        @include hide();
     }
 
-    @media (max-width: 1023px) {
+    @media (max-width: $max-width-mobile) {
         &__toolbar {
             display: grid;
             position: fixed;

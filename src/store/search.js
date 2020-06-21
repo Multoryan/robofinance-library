@@ -9,20 +9,12 @@ const search = {
     },
 
     mutations: {
-        setList (state, list) {
-            state.list = list;
-        },
-
-        setCount (state, count) {
-            state.count = count;
-        },
-
-        setPage (state, page) {
-            state.page = page;
-        },
-
-        setSearch (state, search) {
-            state.search = search;
+        setFields (state, obj) {
+            Object.keys(obj).forEach(key => {
+                if (key in state) {
+                    state[key] = obj[key];
+                }
+            });
         },
     },
 
@@ -37,9 +29,7 @@ const search = {
                     }));
                 }, 300);
             });
-            commit('setList', result.list);
-            commit('setCount', result.count);
-            commit('setPage', result.page);
+            commit('setFields', { ...result });
         },
     },
 };

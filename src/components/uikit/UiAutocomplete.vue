@@ -118,7 +118,7 @@ export default {
         border-bottom: 1px solid #7D8888;
         border-left: 1px solid #7D8888;
         border-right: 1px solid #7D8888;
-        background-color: #fff;
+        background-color: $colorWhite;
         z-index: 1;
         @include blackShadow();
     }
