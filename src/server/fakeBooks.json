@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 4.5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 2.5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 3.5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 2.5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 4.5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 1.5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 3.5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 10,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 2.1,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 11,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 4.7,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 12,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 3.8,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 14,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 4.5,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 1,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 4,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 1,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 1.2,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 1,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 2.7,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    },
+    {
+        "id": 15,
+        "title": "Random name",
+        "description": "Short description",
+        "text": "Full text",
+        "author": "Александр Македенский",
+        "year": 2013,
+        "rating": 3,
+        "image": "https://pbs.twimg.com/profile_images/774944118262919169/W58otMNV_400x400.jpg"
+    }
+]
