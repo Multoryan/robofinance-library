@@ -116,7 +116,7 @@ export default {
         },
 
         back () {
-            // TODO: Подумать над реализацией
+            // @FIXME: Довольно спорный и костыльний момент, надо подумать
             const [first] = this.$route.path.split('/').filter(Boolean);
             this.$router.push({ path: `/${first}` }, () => {
                 this.$router.push({ path: '/' });
