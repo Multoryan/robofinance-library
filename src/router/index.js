@@ -1,10 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/pages/Home';
-import HomeImage from '@/pages/HomeImage';
-import BookCard from '@/pages/BookCard';
-import Search from '@/pages/Search';
-import Favorites from '@/pages/Favorites';
 
 Vue.use(VueRouter);
 
@@ -18,52 +14,66 @@ const routes = [
                 path: '',
                 name: 'HomeImage',
                 components: {
-                    default: HomeImage,
-                    side: Search,
-                    mobile: HomeImage,
+                    default: () => import('@/pages/HomeImage'),
+                    side: () => import('@/pages/Search'),
+                    mobile: () => import('@/pages/HomeImage'),
                 },
             },
             {
                 path: 'search',
+                name: 'Search',
                 components: {
-                    default: HomeImage,
-                    side: Search,
-                    mobile: Search,
+                    default: () => import('@/pages/HomeImage'),
+                    side: () => import('@/pages/Search'),
+                    mobile: () => import('@/pages/Search'),
                 },
             },
             {
                 path: 'search/:id',
+                name: 'SearchBook',
                 components: {
-                    default: BookCard,
-                    side: Search,
-                    mobile: BookCard,
+                    default: () => import('@/pages/BookCard'),
+                    side: () => import('@/pages/Search'),
+                    mobile: () => import('@/pages/BookCard'),
                 },
             },
             {
                 path: 'favorites',
+                name: 'Favorites',
                 components: {
-                    default: HomeImage,
-                    side: Favorites,
-                    mobile: Favorites,
+                    default: () => import('@/pages/HomeImage'),
+                    side: () => import('@/pages/Favorites'),
+                    mobile: () => import('@/pages/Favorites'),
                 },
             },
             {
                 path: 'favorites/:id',
+                name: 'FavoritesBook',
                 components: {
-                    default: BookCard,
-                    side: Favorites,
-                    mobile: BookCard,
+                    default: () => import('@/pages/BookCard'),
+                    side: () => import('@/pages/Favorites'),
+                    mobile: () => import('@/pages/BookCard'),
                 },
             },
             {
                 path: ':id',
+                name: 'Book',
                 components: {
-                    default: BookCard,
-                    side: Search,
-                    mobile: BookCard,
+                    default: () => import('@/pages/BookCard'),
+                    side: () => import('@/pages/Search'),
+                    mobile: () => import('@/pages/BookCard'),
                 },
             },
         ],
+    },
+    {
+        path: '*',
+        name: '404',
+        components: {
+            default: () => import('@/pages/HomeImage'),
+            side: () => import('@/pages/Search'),
+            mobile: () => import('@/pages/HomeImage'),
+        },
     },
 ];
 

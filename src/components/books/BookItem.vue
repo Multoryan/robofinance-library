@@ -1,6 +1,6 @@
 <template>
 <!-- @todo Заменить параметр to на нормальные Name и Идентификатор -->
-<router-link class="book-item" :to="`/${from}/${book.id}`">
+<router-link class="book-item" :to="{ name: pathName, params: { id: book.id } }">
     <template v-if="book.title">
         <img
             class="book-item__image"
@@ -42,7 +42,7 @@ export default {
             required: true,
         },
 
-        from: {
+        pathName: {
             type: String,
             required: true,
         },

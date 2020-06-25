@@ -7,7 +7,7 @@
     >
         <BookItem
             :book="book"
-            :from="from"
+            :pathName="pathName"
             class="book-list__item"
         />
     </div>
@@ -30,7 +30,7 @@ export default {
             required: true,
         },
 
-        from: {
+        pathName: {
             type: String,
             required: true,
         },
@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style lang="scss">
+$colorSeparator: #979797;
+
 .book-list {
     display: flex;
     flex-direction: column;
@@ -46,7 +48,7 @@ export default {
 
     &__item-wrapper {
         padding: 6px 0;
-        border-bottom: 1px solid #979797;
+        border-bottom: 1px solid $colorSeparator;
     }
 
     &__item {
@@ -54,7 +56,7 @@ export default {
         height: 125px;
     }
 
-    @media (max-width: 1023) {
+    @media (max-width: $max-width-mobile) {
         margin-top: 0;
     }
 }

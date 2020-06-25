@@ -16,10 +16,15 @@ const search = {
                 }
             });
         },
+
+        addToList (state, list) {
+            state.list = [...state.list, ...list];
+        },
     },
 
     actions: {
-        async search ({ commit, state }, { search = '', page = 1, limit = 4 }) {
+        async search ({ commit, state }, { search, page = 1, limit = 4 }) {
+            console.log('onSearch');
             const result = await new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve(searchBook({
@@ -30,6 +35,22 @@ const search = {
                 }, 300);
             });
             commit('setFields', { ...result });
+        },
+
+        async uploadMore ({ commit, state }, { search, page = 1, limit = 4 }) {
+            console.log('onMore');
+            const result = await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(searchBook({
+                        search: search || state.search,
+                        page,
+                        limit,
+                    }));
+                }, 300);
+            });
+            const { list, ...other } = result;
+            commit('setFields', other);
+            commit('addToList', list);
         },
     },
 };

@@ -1,6 +1,14 @@
 <template>
-<div class="the-toolbar" @submit="applySearch">
-    <UiButton element="router-link" :to="routeFavorite" view="primary" class="the-toolbar__favorite">
+<div
+    :class="['the-toolbar', { 'the-toolbar--focused': isFocused }]"
+    @submit="applySearch"
+>
+    <UiButton
+        :to="routeFavorite"
+        element="router-link"
+        view="primary"
+        class="the-toolbar__favorite"
+    >
         <template>
             <UiTooltip class="the-toolbar__favorite-tooltip">Избранное</UiTooltip>
             <UiIcon name="favorite-filled" />
@@ -10,6 +18,7 @@
     <UiAutocomplete
         :search.sync="search"
         :suggests="suggests"
+        class="the-toolbar__autocomplete"
         placeholder="Поиск"
         aria-label="Поиск"
         append="44px"
@@ -18,6 +27,8 @@
         @close="resetSuggest"
         @submit="applySearch"
         @setSuggest="setSearch"
+        @focus="toggleFocus"
+        @blur="toggleFocus"
     >
         <template v-slot="{ suggest }">
             <div class="the-toolbar__suggest">
@@ -47,6 +58,7 @@ export default {
     data () {
         return {
             suggests: [], // Подсказки
+            isFocused: false,
         };
     },
 
@@ -55,6 +67,7 @@ export default {
             if (!value.length) {
                 this.resetSuggest();
                 this.$store.commit('search/setFields', { list: [] });
+                this.$router.push({ name: 'HomeImage' });
                 return;
             }
             if (this.suggests.includes(value)) {
@@ -77,21 +90,33 @@ export default {
 
         routeFavorite () {
             if (this.$route.params.id) {
-                return `/favorites/${this.$route.params.id}`;
+                return { name: 'FavoritesBook', params: { id: this.$route.params.id } };
             }
-            return '/favorites';
+            return { name: 'Favorites' };
+        },
+
+        routeSearch () {
+            if (this.$route.params.id) {
+                return { name: 'SearchBook', params: { id: this.$route.params.id } };
+            }
+            return { name: 'Search' };
         },
     },
 
     methods: {
+        toggleFocus () {
+            this.isFocused = !this.isFocused;
+        },
+
         async applySearch () {
             // Если поисковой запрос пуст, то не отправляем форму
             if (!this.search.length) {
                 return;
             }
 
-            this.resetSuggest();
             await this.$store.dispatch('search/search', { search: this.search });
+            this.$router.push(this.routeSearch).catch(() => {});
+            this.resetSuggest();
         },
 
         setSearch (val) {
@@ -129,6 +154,21 @@ export default {
         &-tooltip {
             opacity: 0;
             transition: opacity ease-in-out .15s;
+        }
+    }
+
+    @media (max-width: $max-width-mobile) {
+        &--focused {
+            grid-template-columns: 1fr;
+
+            .the-toolbar__favorite {
+                display: none;
+            }
+
+            .the-toolbar__autocomplete {
+                grid-column: 1/3;
+                grid-row: 1;
+            }
         }
     }
 }

@@ -2,7 +2,11 @@
 <div class="favorite">
     <div class="page-home__favorite-wrapper">
         <div class="favorite__header">
-            <UiButton class="favorite__header-action" element="router-link" :to="backLink">
+            <UiButton
+                class="favorite__header-action"
+                element="router-link"
+                :to="backLink"
+            >
                 <UiIcon name="back" />
             </UiButton>
             <h2 class="favorite__header-title">Избранное</h2>
@@ -12,7 +16,7 @@
             v-if="favorite.length"
             :books="favorite"
             class="favorite__list"
-            from="favorites"
+            pathName="FavoritesBook"
         />
     </div>
 
@@ -71,9 +75,9 @@ export default {
 
         backLink () {
             if (this.$route.params.id) {
-                return `/${this.$route.params.id}`;
+                return { name: 'Book', params: { id: this.$route.params.id } };
             }
-            return '/';
+            return { name: 'HomeImage' };
         },
     },
 };

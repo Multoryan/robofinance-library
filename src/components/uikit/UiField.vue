@@ -6,6 +6,8 @@
         :value="value"
         :style="additionalStyles"
         @input="inputValue"
+        @focus="$emit('focus')"
+        @blur="$emit('blur')"
         @keydown="keydown"
     />
 
